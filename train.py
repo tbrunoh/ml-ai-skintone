@@ -15,7 +15,7 @@ transform = transforms.Compose([
     transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])  # Normalize to [-1, 1]
 ])
 
-train_dataset = SkinToneDataset(csv_file=os.getenv("TRAIN_DATASET_PATH"), transform=transform)
+train_dataset = SkinToneDataset(csv_file=os.getenv("TEST_DATASET_PATH"), transform=transform)
 
 
 network = SkinToneCNNModel(num_classes=10,image_size=128,channels=3).to(device)

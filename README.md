@@ -1,0 +1,1 @@
+pip3 install  git+https://github.com/melanin-luxe/ml-ai-core.git
