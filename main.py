@@ -6,9 +6,7 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-
 device = Utils.set_accelerator()
-
 
 transform = transforms.Compose([
     transforms.Resize((128, 128)),  # Resize all images to 128x128
