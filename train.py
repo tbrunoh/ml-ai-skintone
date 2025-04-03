@@ -1,6 +1,7 @@
 from models.model import SkinToneCNNModel
 from models.dataset import SkinToneDataset
 from mlaicore.utils.utils import Utils
+from mlaicore.utils.train_utils import TrainUtils
 from torchvision import transforms
 import torch as T
 from models.loss_func import OrdinalRegressionLoss
@@ -26,11 +27,14 @@ epochs = 50
 learning_rate=0.0001
 batch_size=32
 epoch_log_interval=10
+checkpoint_path=os.getenv("CHECKPOINT_PATH")
 
 loss_func = T.nn.CrossEntropyLoss()  # does log-softmax()
 optimizer = T.optim.SGD(network.parameters(), lr=learning_rate, weight_decay=1e-4)
 
 training_loader=T.utils.data.DataLoader(train_dataset,batch_size=batch_size,shuffle=True)
+
+start_epoch = TrainUtils.load_checkpoint(checkpoint_path, network, optimizer)
 
 print("\nbat_size = %3d " % batch_size)
 print("loss = " + str(loss_func))
@@ -64,6 +68,10 @@ for epoch in range(0, epochs):
     epoch_end_time = time.time()  # End timing the epoch
     if epoch % epoch_log_interval == 0:
         print("epoch = %4d loss = %0.4f completed in %0.2f seconds" % (epoch, epoch_loss, epoch_end_time - epoch_start_time))
+ 
+    TrainUtils.save_checkpoint(epoch, network, optimizer, epoch_loss, checkpoint_path)
+
+
 print("Done")
  
 # Add test dataset and loader
