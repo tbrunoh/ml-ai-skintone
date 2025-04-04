@@ -27,7 +27,7 @@ epochs = 50
 learning_rate=0.0001
 batch_size=32
 epoch_log_interval=10
-checkpoint_path=f"{os.getenv("CHECKPOINT_PATH")}/skin_tone_checkpoint"
+checkpoint_path=f"{os.getenv('CHECKPOINT_PATH')}/skin_tone_checkpoint"
 
 loss_func = T.nn.CrossEntropyLoss()  # does log-softmax()
 optimizer = T.optim.SGD(network.parameters(), lr=learning_rate, weight_decay=1e-4)
