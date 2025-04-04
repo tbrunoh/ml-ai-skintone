@@ -71,6 +71,10 @@ for epoch in range(0, epochs):
  
     TrainUtils.save_checkpoint(epoch, network, optimizer, epoch_loss, checkpoint_path)
 
+# Save the trained model for inference
+model_save_path = os.getenv("MODEL_SAVE_PATH", "skin_tone_model.pth")  # Default path if not set in environment
+T.save(network.state_dict(), model_save_path)
+print(f"Model saved for inference at {model_save_path}")
 
 print("Done")
  
