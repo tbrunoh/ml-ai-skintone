@@ -12,7 +12,19 @@ load_dotenv()
 
 model_save_path = f'{os.getenv("MODEL_SAVE_PATH")}/skin_tone_model.pth'  # Default path if not set in environment
 
-
+# Create a mapping for Monk Skin Tone names to numbers
+monk_skin_tone_mapper = {
+    0: "Very Light",
+    1: "Light",
+    2: "Light Medium",
+    3: "Medium",
+    4: "Medium Deep",
+    5: "Deep",
+    6: "Very Deep",
+    7: "Dark",
+    8: "Very Dark",
+    9: "Deepest Dark"
+}
 # Load the saved model for inference
 model_inference = SkinToneCNNModel(num_classes=10, image_size=512, channels=3)
 model_inference.load_state_dict(T.load(model_save_path))
@@ -52,7 +64,8 @@ def classify_image(image_path_or_url):
             predicted_class = T.argmax(output, dim=1).item()
         
         return {
-                "num":predicted_class
+                "number":predicted_class,
+                "name":monk_skin_tone_mapper[predicted_class]
                 }
     except Exception as e:
         return f"Error during classification: {e}"
