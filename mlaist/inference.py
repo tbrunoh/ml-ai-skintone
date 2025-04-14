@@ -57,7 +57,7 @@ def classify_image(image_path_or_url):
     except Exception as e:
         return f"Error during classification: {e}"
 
-# Example usage
-image_path_or_url = 'https://sdrimltdata.blob.core.windows.net/melanintrainingimages/mst/PXL_20220922_185757301.jpg'  #input("Enter the image path or URL: ")
-result = classify_image(image_path_or_url)
-print(result)
+# # Example usage
+# image_path_or_url = 'https://sdrimltdata.blob.core.windows.net/melanintrainingimages/mst/PXL_20220922_185757301.jpg'  #input("Enter the image path or URL: ")
+# result = classify_image(image_path_or_url)
+# print(result)
