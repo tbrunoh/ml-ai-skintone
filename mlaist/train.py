@@ -1,10 +1,10 @@
-from models.model import SkinToneCNNModel
-from models.dataset import SkinToneDataset
+from mlaist.models.model import SkinToneCNNModel
+from mlaist.models.dataset import SkinToneDataset
 from mlaicore.utils.utils import Utils
 from mlaicore.utils.train_utils import TrainUtils
 from torchvision import transforms
 import torch as T
-from models.loss_func import OrdinalRegressionLoss
+from mlaist.models.loss_func import OrdinalRegressionLoss
 
 import time  # Import the time module for timing
 from dotenv import load_dotenv

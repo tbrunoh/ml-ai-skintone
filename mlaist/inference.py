@@ -1,6 +1,6 @@
 
 import torch as T
-from models.model import SkinToneCNNModel
+from mlaist.models.model import SkinToneCNNModel
 import torchvision.transforms as transforms
 from dotenv import load_dotenv
 import os
