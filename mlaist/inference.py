@@ -25,6 +25,18 @@ monk_skin_tone_mapper = {
     8: "Very Dark",
     9: "Deepest Dark"
 }
+mst_orbs_mapper = {
+    0: "https://sdrimltdata.blob.core.windows.net/melanintrainingimages/orbs/MST_1.png",
+    1: "https://sdrimltdata.blob.core.windows.net/melanintrainingimages/orbs/MST_2.png",
+    2: "https://sdrimltdata.blob.core.windows.net/melanintrainingimages/orbs/MST_3.png",
+    3: "https://sdrimltdata.blob.core.windows.net/melanintrainingimages/orbs/MST_4.png",
+    4: "https://sdrimltdata.blob.core.windows.net/melanintrainingimages/orbs/MST_5.png",
+    5: "https://sdrimltdata.blob.core.windows.net/melanintrainingimages/orbs/MST_6.png",
+    6: "https://sdrimltdata.blob.core.windows.net/melanintrainingimages/orbs/MST_7.png",
+    7: "https://sdrimltdata.blob.core.windows.net/melanintrainingimages/orbs/MST_8.png",
+    8: "https://sdrimltdata.blob.core.windows.net/melanintrainingimages/orbs/MST_9.png",
+    9: "https://sdrimltdata.blob.core.windows.net/melanintrainingimages/orbs/MST_10.png"
+}
 # Load the saved model for inference
 model_inference = SkinToneCNNModel(num_classes=10, image_size=512, channels=3)
 model_inference.load_state_dict(T.load(model_save_path))
@@ -65,7 +77,8 @@ def classify_image(image_path_or_url):
         
         return {
                 "number":predicted_class,
-                "name":monk_skin_tone_mapper[predicted_class]
+                "name":monk_skin_tone_mapper[predicted_class],
+                "orb": mst_orbs_mapper[predicted_class]
                 }
     except Exception as e:
         return f"Error during classification: {e}"
