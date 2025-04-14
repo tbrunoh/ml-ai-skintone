@@ -76,7 +76,7 @@ def classify_image(image_path_or_url):
             predicted_class = T.argmax(output, dim=1).item()
         
         return {
-                "number":predicted_class,
+                "number":predicted_class+1,
                 "name":monk_skin_tone_mapper[predicted_class],
                 "orb": mst_orbs_mapper[predicted_class]
                 }
