@@ -35,7 +35,7 @@ Jinja2==3.1.6
 kiwisolver==1.4.8
 MarkupSafe==3.0.2
 matplotlib==3.10.1
-mlaicore @ git+ssh://git@github.com/melanin-luxe/ml-ai-core.git@72697346e26554ca30a7e8e09ec066c3bf0e8637
+mlaicore @ git+https://github.com/tbrunoh/ml-ai-core.git@72697346e26554ca30a7e8e09ec066c3bf0e8637
 mpmath==1.3.0
 networkx==3.4.2
 numpy==2.2.4
